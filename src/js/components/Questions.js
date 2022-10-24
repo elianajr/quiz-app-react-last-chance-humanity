@@ -18,7 +18,7 @@ const questions = [
         ],
     },
     {
-        questionText: 'What is the surname of the leading creator of relativity theory?',
+        questionText: 'Who is the creator of relativity theory?',
         answerOptions: [
             { answerText: 'Albert Einstein', isCorrect: true },
             { answerText: 'Max Planck', isCorrect: false },

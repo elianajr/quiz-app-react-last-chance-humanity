@@ -31,7 +31,6 @@ export default function App() {
         }
     };
 
-
     return (
         <div className='app'>
             {showScore ? (
@@ -39,7 +38,7 @@ export default function App() {
                     <span>
                         You scored {score} out of {questions.length}
                     </span>
-                    <button onClick={() => (window.location.href = "/")}>
+                    <button className='button-quit-play' onClick={() => (window.location.href = "/quiz")}>
                         Play again
                     </button>
                 </div>
@@ -47,7 +46,8 @@ export default function App() {
                 <>
                     <div className='question-section'>
                         <div className='question-count'>
-                            <span>Question {currentQuestion + 1}</span>/{questions.length}
+                            <h2>Last Chance for Humanity Quizz</h2>
+                            <span>Question {currentQuestion + 1} of {questions.length}</span>
                         </div>
                         <div className='question-text'>{questions[currentQuestion].questionText}</div>
                     </div>
@@ -63,11 +63,21 @@ export default function App() {
                             </button>
                         ))}
 
-                        <button onClick={() => (window.location.href = "/quit")}>
-                            Quit
-                        </button>
+                        <div className='bottom-buttons-section'>
+                            <button className='button-quit-play' onClick={() => (window.location.href = "/quit")}>
+                                Quit
+                            </button>
+                            <button
+                                className='button-next-question'
+                                onClick={() => nextQuestionButton()}
+                                disabled={!showAnswer}>
+                                    Next Question
+                            </button>
+                        </div>
 
-                        <button onClick={() => nextQuestionButton()} disabled={!showAnswer}>Next Question</button>
+                        <h4>
+                            * Think twice! You just have one chance to answer and you need to answer every question to jump to the next one.
+                        </h4>
                     </div>
                 </>
             )}
